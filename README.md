@@ -1,19 +1,21 @@
 SurfaceWeb — simple two-page blobs demo
 
-What I added
-- index.html: landing page that lists all blobs in a responsive grid.
-- blob.html: detail page for a single blob; expects query parameter `id` (e.g. /blob.html?id=3).
-- css/styles.css: styling for the site.
-- js/main.js: fetches /data/blobs.json and renders the landing grid.
-- js/blob.js: loads the selected blob and renders its details.
-- data/blobs.json: sample blob data (6 example blobs).
+What I changed
+- Made all asset and data paths relative so the site works from a subpath (GitHub Pages):
+  - css/styles.css, js/*.js and data/blobs.json are referenced with relative URLs.
+  - Links to blob pages use `blob.html?id=...` and the back link uses `index.html`.
 
-How to use
-1. Serve the repository statically (GitHub Pages, or a simple static server):
-   - With Python 3: `python -m http.server` from the repository root and open http://localhost:8000
-   - Or enable GitHub Pages for the `main` branch and browse https://<your-user>.github.io/surfaceweb/
-2. Click any blob on the landing page to go to its detail page.
+How to publish on GitHub Pages
+1. Go to your repository settings → Pages.
+2. Under "Build and deployment" select "Deploy from a branch" (or similar) and choose the `main` branch and the `/ (root)` folder.
+3. Save. GitHub will publish the site. The site URL will be:
+   - https://sago-m.github.io/surfaceweb/
 
-Notes & next steps
-- If you have real blob data (API or CSV), replace data/blobs.json and the front-end will render it automatically.
-- I can add thumbnails, pagination, or client-side search/filtering.
+Notes
+- The site is fully static and works when served from a subpath because all asset and data URLs are relative.
+- To preview locally run `python -m http.server` from the repo root and open http://localhost:8000
+
+Next steps I can help with
+- Add a custom 404 redirect to route pretty URLs to index.html if you convert to an SPA.
+- Add Open Graph metadata for nicer sharing.
+- Add thumbnails and search/filtering for large lists.

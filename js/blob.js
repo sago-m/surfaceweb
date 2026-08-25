@@ -11,7 +11,7 @@ async function loadBlob(){
     return;
   }
   try{
-    const res = await fetch('/data/blobs.json');
+    const res = await fetch('data/blobs.json');
     const blobs = await res.json();
     const b = blobs.find(x => String(x.id) === String(id));
     if(!b){
@@ -39,7 +39,7 @@ function escapeHtml(s){
     .replace(/&/g,'&amp;')
     .replace(/</g,'&lt;')
     .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
+    .replace(/\"/g,'&quot;')
     .replace(/'/g,'&#39;');
 }
 
