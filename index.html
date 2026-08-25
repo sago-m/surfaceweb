@@ -9,21 +9,62 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="SurfaceWeb home">
-      <img class="logo" src="assets/logo.svg" alt="SurfaceWeb logo" />
-      <div class="brand-text">
-        <h1>SurfaceWeb</h1>
-        <p class="tagline">Browse blobs — click any blob to see details</p>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="SurfaceWeb home">
+        <img class="logo" src="assets/logo.svg" alt="SurfaceWeb logo" />
+        <div class="brand-text">
+          <h1>SurfaceWeb</h1>
+          <p class="tagline">Explore surface observations</p>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Blobs</a>
+        <a href="#" class="nav-link">About</a>
+      </nav>
+    </div>
+
+    <div class="container header-toolbar">
+      <div class="toolbar-left">
+        <label for="search" class="visually-hidden">Search blobs</label>
+        <input id="search" type="search" placeholder="Search by title or summary..." />
       </div>
-    </a>
+      <div class="toolbar-right">
+        <label for="sort" class="sort-label">Sort</label>
+        <select id="sort" aria-label="Sort blobs">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="title-asc">Title A–Z</option>
+        </select>
+      </div>
+    </div>
   </header>
 
   <main class="container">
-    <section id="blobs" class="grid"></section>
+    <div class="results-header">
+      <div id="result-count" class="result-count"></div>
+    </div>
+    <section id="blobs" class="grid" aria-live="polite"></section>
   </main>
 
   <footer class="site-footer">
-    <small>Static demo site — built for sago-m/surfaceweb</small>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>SurfaceWeb</h4>
+        <p class="muted">Static demo site — built for sago-m/surfaceweb</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Blobs</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p class="muted">Email: btechsam@gmail.com</p>
+      </div>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>

@@ -9,13 +9,19 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="SurfaceWeb home">
-      <img class="logo" src="assets/logo.svg" alt="SurfaceWeb logo" />
-      <div class="brand-text">
-        <h1 id="blob-title">Blob</h1>
-        <a class="back-link" href="index.html">← Back to all blobs</a>
-      </div>
-    </a>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="SurfaceWeb home">
+        <img class="logo" src="assets/logo.svg" alt="SurfaceWeb logo" />
+        <div class="brand-text">
+          <h1 id="blob-title">Blob</h1>
+          <p class="tagline">Details</p>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Blobs</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
@@ -23,7 +29,22 @@
   </main>
 
   <footer class="site-footer">
-    <small>Static demo site — built for sago-m/surfaceweb</small>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>SurfaceWeb</h4>
+        <p class="muted">Static demo site — built for sago-m/surfaceweb</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Back to blobs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <p class="muted">Built with static JSON and vanilla JS</p>
+      </div>
+    </div>
   </footer>
 
   <script src="js/blob.js"></script>

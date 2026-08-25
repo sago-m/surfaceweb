@@ -30,16 +30,25 @@ function renderBlob(b){
   const el = document.getElementById('blob-content');
   el.innerHTML = `
     <div class="blob-meta">ID: <strong>${escapeHtml(b.id)}</strong> &nbsp; • &nbsp; <span>${escapeHtml(b.summary)}</span></div>
+    <div class="blob-meta">Published: <strong>${formatDate(b.published)}</strong></div>
     <div class="blob-body">${escapeHtml(b.content).replace(/\n/g,'<br/>')}</div>
+    <a class="back-link" href="index.html">← Back to all blobs</a>
   `;
 }
 
+function formatDate(iso){
+  try{
+    const d = new Date(iso);
+    return d.toLocaleDateString(undefined, {year:'numeric',month:'short',day:'numeric'});
+  }catch(e){return ''}
+}
+
 function escapeHtml(s){
-  return String(s)
+  return String(s||'')
     .replace(/&/g,'&amp;')
     .replace(/</g,'&lt;')
     .replace(/>/g,'&gt;')
-    .replace(/\"/g,'&quot;')
+    .replace(/"/g,'&quot;')
     .replace(/'/g,'&#39;');
 }
 
