@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Aurora Blob",
+    "summary": "A shimmering surface observation.",
+    "content": "This blob captures the aurora-like patterns seen on the surface scan.\nCoordinates: 45.123N, -122.65W\nNotes: high reflectance"
+  },
+  {
+    "id": "2",
+    "title": "Crystalline Blob",
+    "summary": "Structured, lattice-like formation.",
+    "content": "A crystalline formation with repeating symmetry.\nPotential mineralogical interest."
+  },
+  {
+    "id": "3",
+    "title": "Shadow Blob",
+    "summary": "Low-reflectance, possible void.",
+    "content": "Darker region, absorbs more light.\nRecommended follow-up imaging."
+  },
+  {
+    "id": "4",
+    "title": "Iridescent Blob",
+    "summary": "Shows color-shifting under angle.",
+    "content": "Iridescence suggests thin-film interference.\nPossible layered deposit."
+  },
+  {
+    "id": "5",
+    "title": "Granular Blob",
+    "summary": "Coarse texture with many small particles.",
+    "content": "Appears to be an aggregation of particles.\nParticle size distribution unknown."
+  },
+  {
+    "id": "6",
+    "title": "Smooth Blob",
+    "summary": "Homogeneous smooth patch.",
+    "content": "Uniform reflectance and texture.\nCould be resurfacing or coating."
+  }
+]

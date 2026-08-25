@@ -1,0 +1,42 @@
+/* Simple responsive styles for the blobs demo */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --accent:#38bdf8;
+  --white:#f8fafc;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,var(--bg),#071024);
+  color:var(--white);
+}
+.container{max-width:1100px;margin:24px auto;padding:0 16px}
+.site-header{padding:28px 16px 8px;text-align:center}
+.site-header h1{margin:0;font-size:28px}
+.tagline{color:var(--muted);margin-top:6px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:16px;
+  margin-top:20px;
+}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+  border:1px solid rgba(255,255,255,0.04);
+  padding:14px;
+  border-radius:10px;
+  text-decoration:none;color:inherit;display:block;
+  transition:transform .12s ease,box-shadow .12s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.card .title{font-weight:600;margin-bottom:8px}
+.card .summary{color:var(--muted);font-size:14px}
+.blob-detail{background:var(--card);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.blob-meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+.back-link{display:inline-block;margin-top:8px;color:var(--accent);text-decoration:none}
+.site-footer{text-align:center;padding:18px 8px;color:var(--muted);font-size:13px}
+@media (max-width:420px){.site-header h1{font-size:20px}}
