@@ -1,8 +1,8 @@
 {
   "id": "1",
-  "title": "Aurora Blob",
-  "summary": "A shimmering surface observation.",
-  "published": "2026-07-22T10:00:00Z",
+  "title": "Whats next in AI world?",
+  "summary": "A different view on what is next after AI.",
+  "published": "2026-07-22",
   "template": "image",
   "image": "assets/aurora.jpg",
   "content": "This blob captures the aurora-like patterns seen on the surface scan.\nCoordinates: 45.123N, -122.65W\nNotes: high reflectance\n\nObservations include banded structures and color variation across viewing angles."
