@@ -70,3 +70,20 @@ body{
   .footer-inner{flex-direction:column}
 }
 @media (max-width:420px){.logo{width:44px;height:44px}.brand-text h1{font-size:16px}}
+
+/* Layout fixes: guard against oversized decorative images or SVGs that push the header height */
+/* These rules are intentionally conservative — they prevent runaway graphics while keeping existing design intact. */
+img, svg { max-width: 100%; height: auto; display: block; }
+
+/* If a large decorative hero or background SVG appears inside the header, cap its visible height and hide overflow. */
+.site-header { max-height: 48vh; overflow: hidden; }
+
+/* Ensure main content maintains comfortable spacing from header */
+main.container { margin-top: 16px; }
+
+/* Make the cards a bit more spacious and resilient on very wide screens */
+.grid { gap: 20px; }
+
+/* Provide a safe min-width shrink for flex children if they're used inside cards or toolbars */
+.header-inner > * { min-width: 0; }
+.toolbar-left, .toolbar-right { min-width: 0; }

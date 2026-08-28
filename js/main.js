@@ -30,7 +30,8 @@ function setupControls(){
     const q = e.target.value.trim().toLowerCase();
     if(!q){ filtered = blobsCache.slice(); }
     else{
-      filtered = blobsCache.filter(b => (b.title+b.summary+b.content).toLowerCase().includes(q));
+      // Only search title and summary in the index (individual blob files hold rich content)
+      filtered = blobsCache.filter(b => (String(b.title)+String(b.summary)).toLowerCase().includes(q));
     }
     // keep current sort
     applySort(document.getElementById('sort').value);

@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "title": "Shadow Blob",
+  "summary": "Low-reflectance, possible void.",
+  "published": "2026-08-01T16:20:00Z",
+  "template": "image",
+  "image": "assets/shadow.png",
+  "content": "Darker region, absorbs more light.\nRecommended follow-up imaging.\n\nThermal imaging may reveal subsurface structure."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "6",
+  "title": "Smooth Blob",
+  "summary": "Homogeneous smooth patch.",
+  "published": "2026-08-20T11:45:00Z",
+  "template": "image",
+  "image": "assets/smooth.jpg",
+  "content": "Uniform reflectance and texture.\nCould be resurfacing or coating.\n\nSurface profilometry suggested to measure roughness."
+}
