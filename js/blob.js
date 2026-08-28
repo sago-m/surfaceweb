@@ -11,13 +11,23 @@ async function loadBlob(){
     return;
   }
   try{
-    const res = await fetch('data/blobs.json');
-    const blobs = await res.json();
-    const b = blobs.find(x => String(x.id) === String(id));
-    if(!b){
-      document.getElementById('blob-content').innerHTML = '<p class="blob-meta">Blob not found.</p>';
-      return;
+    // Attempt to fetch the individual blob file. Files live at data/blobs/{id}.json
+    const path = `data/blobs/${encodeURIComponent(id)}.json`;
+    const res = await fetch(path);
+    if(!res.ok){
+      // Fallback: try the index and locate the file entry
+      const idx = await (await fetch('data/blobs.json')).json();
+      const entry = idx.find(x => String(x.id) === String(id));
+      if(entry && entry.file){
+        const r2 = await fetch(entry.file);
+        if(!r2.ok) throw new Error('Blob file not found');
+        const b2 = await r2.json();
+        renderBlob(b2);
+        return;
+      }
+      throw new Error('Blob not found');
     }
+    const b = await res.json();
     renderBlob(b);
   }catch(err){
     console.error(err);
@@ -28,12 +38,22 @@ async function loadBlob(){
 function renderBlob(b){
   document.getElementById('blob-title').textContent = b.title || 'Blob';
   const el = document.getElementById('blob-content');
-  el.innerHTML = `
-    <div class="blob-meta">ID: <strong>${escapeHtml(b.id)}</strong> &nbsp; • &nbsp; <span>${escapeHtml(b.summary)}</span></div>
-    <div class="blob-meta">Published: <strong>${formatDate(b.published)}</strong></div>
-    <div class="blob-body">${escapeHtml(b.content).replace(/\n/g,'<br/>')}</div>
-    <a class="back-link" href="index.html">← Back to all blobs</a>
-  `;
+  // Use templates if available
+  if(window.templates && typeof window.templates.render === 'function'){
+    el.innerHTML = `
+      <div class="blob-meta">ID: <strong>${escapeHtml(b.id)}</strong> &nbsp; • &nbsp; <span>${escapeHtml(b.summary)}</span></div>
+      <div class="blob-meta">Published: <strong>${formatDate(b.published)}</strong></div>
+      ` + window.templates.render(b, escapeHtml) + `
+      <a class="back-link" href="index.html">← Back to all blobs</a>
+    `;
+  }else{
+    el.innerHTML = `
+      <div class="blob-meta">ID: <strong>${escapeHtml(b.id)}</strong> &nbsp; • &nbsp; <span>${escapeHtml(b.summary)}</span></div>
+      <div class="blob-meta">Published: <strong>${formatDate(b.published)}</strong></div>
+      <div class="blob-body">${escapeHtml(b.content).replace(/\n/g,'<br/>')}</div>
+      <a class="back-link" href="index.html">← Back to all blobs</a>
+    `;
+  }
 }
 
 function formatDate(iso){
